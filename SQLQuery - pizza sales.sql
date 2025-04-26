@@ -65,7 +65,7 @@ concat(round((total_revenue/sum(total_revenue) over ())*100,2),'%') as PCT
 from sales_by_category
 order by total_revenue desc
 
---Solution 2 from Video
+--Solution 2
 SELECT pizza_category, CAST(SUM(total_price) AS DECIMAL(10,2)) as total_revenue,
 CAST(SUM(total_price) * 100 / (SELECT SUM(total_price) from pizza_sales) AS DECIMAL(10,2)) AS PCT
 FROM pizza_sales
@@ -135,7 +135,7 @@ GROUP BY pizza_name
 ORDER BY Total_Orders
 
 /*---------------------------------------------------------------------
-以下为制作PowerBI看板时可能会用到的testing queries
+testing queries
 ---------------------------------------------------------------------*/
 --Total orders
 select count(distinct order_id)  AS Total_orders
